@@ -1,10 +1,4 @@
-<?php 
-//   require('DBconnect.php');
-//   require('interval.php');
-//   require('email-validation.php');
-  $err=null;
-  $email=null;
-?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -29,36 +23,7 @@
   
 </head>
 <body style="margin:0 ;padding:0;">
-  <?php
-
-    if(isset($_POST['sButton'])){
-      $t = validation($_POST['email'],$conn);
-      if($t!=='valid'){
-        $GLOBALS['err'] = $t;
-        $GLOBALS['email']=$_POST['email'];
-      }
-    }
-
-    if(isset($_POST['sButton']) and validation($_POST['email'],$conn)==='valid')
-    {
-      $insertQuery = "INSERT INTO user_subscription (email,status_data) VALUES (?,?)";
-      $result = mysqli_prepare($conn,$insertQuery);
-      $status = "subscribed";
-      $email = $_POST['email'];
-      mysqli_stmt_bind_param($result,'ss',$email,$status);
-
-      if (mysqli_stmt_execute($result)) {
-        echo "<script>alert('Subscribed to XKCD successfully');";
-        echo "window.location.href = 'index.php';</script>";
-      } else {
-        echo "Error: " . $insertQuery . "<br>" . mysqli_error($conn);
-      }
-      
-    }
-
-    mysqli_close($conn);
-
-  ?>
+  
 
   <!-- Logo section  -->
   <div style="background-color: rgb(9, 38, 59);height:80px;text-align: center;border:1px solid rgb(9, 38, 59);padding:0;">

@@ -1,7 +1,7 @@
 <?php 
-  require('DBconnect.php');
-  require('interval.php');
-  require('email-validation.php');
+//   require('DBconnect.php');
+//   require('interval.php');
+//   require('email-validation.php');
   $err=null;
   $email=null;
 ?>
